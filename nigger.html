@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html style="background-color: rgb(192,192,192);">
     <head>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-client_id" content="742044231080-5ps0e49k45ac2chm9m1d7mvrgul3pvks.apps.googleusercontent.com">
         <title>MonkeyBalls</title>
         <link
         rel="stylesheet"
@@ -60,6 +62,16 @@
 
 
         <div class="main">
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <script>
+                function onSignIn(googleUser) {
+                var profile = googleUser.getBasicProfile();
+                console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+                console.log('Name: ' + profile.getName());
+                console.log('Image URL: ' + profile.getImageUrl());
+                console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+                }
+            </script>
             <h1 style="margin-top: 1vh;">Wait... How did you get here?</h1>
             <h3>Error 404: Page not found</h3>
             <p> You shouldn't be here</p>
