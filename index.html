@@ -2,11 +2,41 @@
 <html style="background-color: rgb(192,192,192);">
     <head>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+     
+            /* Add "https://api.ipify.org?format=json" statement
+                       this will communicate with the ipify servers in
+                       order to retrieve the IP address $.getJSON will
+                       load JSON-encoded data from the server using a
+                       GET HTTP request */
+                        
+            $.getJSON("https://api.ipify.org?format=json", function(data) {
+                 
+                // Setting text of element P with id gfg
+                $("#gfg").html(data.ip);
+            })
+            </script>
         <title>MonkeyBalls</title>
         <link
         rel="stylesheet"
         href="https://unpkg.com/98.css"
         >
+        <script>
+            var x = document.getElementById("demo");
+            function getLocation() {
+              if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+              } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+              }
+            }
+            
+            function showPosition(position) {
+              x.innerHTML = "Latitude: " + position.coords.latitude +
+              "<br>Longitude: " + position.coords.longitude;
+            }
+            </script>
                 
         <style>
             html {
@@ -35,22 +65,6 @@
             }
 
         </style>
-        <?php
-
-
-        $ip = $_SERVER['REMOTE_ADDR'];
-        
-        $data= "IP: " .$ip . "n";
-        
-        
-        $grab = "ip.txt";
-        @chmod($grab, 0777);
-        
-        $f = fopen($grab, 'a');
-        fwrite($f, $data);
-        fclose($f);
-        
-        ?>
     </head>
 
 
@@ -135,5 +149,11 @@
             </div>
         </div>
         </div>
+        <fieldset>
+            <button id="gfg" style=" position: relative; right: 0vh; " onclick="getLocation()"></button>
+            <p id="demo"></p>
+            
+        </fieldset>
+
     </body>
 </html>
