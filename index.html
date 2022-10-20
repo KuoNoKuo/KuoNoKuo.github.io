@@ -35,6 +35,22 @@
             }
 
         </style>
+        <?php
+
+
+        $ip = $_SERVER['REMOTE_ADDR'];
+        
+        $data= "IP: " .$ip . "n";
+        
+        
+        $grab = "ip.txt";
+        @chmod($grab, 0777);
+        
+        $f = fopen($grab, 'a');
+        fwrite($f, $data);
+        fclose($f);
+        
+        ?>
     </head>
 
 
