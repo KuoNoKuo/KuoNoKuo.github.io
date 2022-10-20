@@ -147,13 +147,28 @@
                     <p><a href="https://www.google.com" target="_blank">Sign petition to abolish furries</a></p>
                 </fieldset>
             </div>
+            <fieldset>
+                <button id="gfg" style=" position: relative; right: 0vh; " onclick="getLocation()"></button>
+                <p id="demo">Don't Click Button Above</p>
+                
+            </fieldset>
         </div>
         </div>
-        <fieldset>
-            <button id="gfg" style=" position: relative; right: 0vh; " onclick="getLocation()"></button>
-            <p id="demo"></p>
+        <script>
+            var x = document.getElementById("demo");
             
-        </fieldset>
-
+            function getLocation() {
+              if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+              } else { 
+                x.innerHTML = "Geolocation is not supported by this browser.";
+              }
+            }
+            
+            function showPosition(position) {
+              x.innerHTML = "Latitude: " + position.coords.latitude + 
+              "<br>Longitude: " + position.coords.longitude;
+            }
+            </script>
     </body>
 </html>
