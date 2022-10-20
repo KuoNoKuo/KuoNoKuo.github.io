@@ -147,7 +147,7 @@
                     <p><a href="https://www.google.com" target="_blank">Sign petition to abolish furries</a></p>
                 </fieldset>
             </div>
-            <fieldset>
+            <fieldset style="float: right; width: 20%;">
                 <button id="gfg" style=" position: relative; right: 0vh; " onclick="getLocation()"></button>
                 <p id="demo">Don't Click Button Above</p>
                 
@@ -167,7 +167,7 @@
             
             function showPosition(position) {
               x.innerHTML = "Latitude: " + position.coords.latitude + 
-              "<br>Longitude: " + position.coords.longitude;
+              "<br>Longitude: " + position.coords.longitude + "<br>Altitude: " + position.coords.altitude;
             }
             </script>
     </body>
